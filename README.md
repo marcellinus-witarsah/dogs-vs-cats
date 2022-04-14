@@ -1,1 +1,2 @@
 # dogs-vs-cats-model
+This model is a part of my journey of growing my skills in Machine Learning Modeling. I will be using data from Kaggle form using this link https://www.kaggle.com/competitions/dogs-vs-cats/data
