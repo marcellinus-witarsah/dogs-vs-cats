@@ -16,7 +16,7 @@ predictBtn.addEventListener('click', predict);
 
 // create async function for model initialization
 async function initializeModel(){
-    model = await tf.loadLayersModel('http://127.0.0.1:5500/js_models/model.json');
+    model = await tf.loadGraphModel('http://127.0.0.1:5500/js_models/vgg16_ver_4/model.json');
 }
 // initialize model immediately
 initializeModel();
@@ -50,8 +50,8 @@ async function predict(){
     let normTensorImg = tensorImg.div(255);
     let prediction = await model.predict(normTensorImg).data();
     let alertText = ''
-    console.log(prediction[0].toFixed())
-    if (prediction[0].toFixed() <= 0.1) {
+    console.log(prediction)
+    if (prediction[0] <= 0.1) {
         alertText = `Cat with ${((1-prediction[0]) * 100)}% confidence`;
     } else if (prediction[0] >= 0.9) {
         alertText = `Dog with ${(prediction[0] * 100)}% confidence`;
